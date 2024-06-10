@@ -1,0 +1,37 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+body {
+  font-family: "Lufga", sans-serif;
+  margin: 0;
+  background-color: #273248;
+  padding: 0;
+  box-sizing: border-box;
+  scroll-behavior: smooth;
+}
+
+.toast {
+  @apply bg-[#2F406480] border-[1px] border-[#445B8A] text-white backdrop-blur-md;
+}
+
+.AuthButton {
+  @apply border-[1px] border-[#445B8A] bg-[#2F4064BF] flex justify-center items-center;
+}
+
+.text_small {
+  @apply text-sm md:text-base;
+}
+.text_medium {
+  @apply text-base md:text-lg;
+}
+.text_large {
+  @apply text-lg md:text-xl;
+}
+.text_xl {
+  @apply text-xl md:text-2xl;
+}
+
+.box {
+  @apply border-[1px] border-[#445B8A] bg-[#2F406480];
+}
