@@ -4,18 +4,20 @@ import { Shared } from "../assets/Shared"
 import { motion } from "framer-motion"
 import styles from '../assets/Shared.module.css'
 
+import { CircularProgressbar } from 'react-circular-progressbar';
+import 'react-circular-progressbar/dist/styles.css';
+
 interface Props{
   colors: string, 
-  icon: React.ReactNode, 
+  icon?: React.ReactNode, 
   title: string, 
   link: string, 
   amount: string, 
   rate: string, 
-  rate2: string, 
-  icon2: React.ReactNode,
+  rate2?: number, 
 }
 
-const Analytics: React.FC<Props> =({colors, icon, title, link, amount, rate, rate2, icon2}) => {
+const Analytics: React.FC<Props> =({colors, icon, title, link, amount, rate, rate2}) => {
   return (
     <motion.div 
       initial={{x:100, opacity:0}}
@@ -33,10 +35,12 @@ const Analytics: React.FC<Props> =({colors, icon, title, link, amount, rate, rat
             <p className="text-nowrap">{title}</p>
         </div>
         {/* amount */}
+        
         <p style={{fontSize:Shared.Text.large, fontWeight:'bold'}}>{amount}</p>
         {/* rate */}
         {rate &&
             <div  style={{backgroundColor: `${colors}40`}} className="p-1 w-fit rounded-lg inline-flex">
+              
               <p style={{fontSize:Shared.Text.small, fontWeight:'bold', color:colors}} className="inline-flex">{rate}</p>
             </div>}
         {/* link */}
@@ -44,11 +48,20 @@ const Analytics: React.FC<Props> =({colors, icon, title, link, amount, rate, rat
       </div>
 
       {/* left */}
-        <p style={{color:colors, fontSize:Shared.Text.small, fontWeight:'bold'}}>{rate2}</p>
+
+          {rate2 &&
+            <div className="w-24">
+              <CircularProgressbar 
+                value={rate2} 
+                maxValue={100} 
+                text={`+${rate2}%`}
+                styles={{
+                  path: { stroke: colors, },
+                  trail: { stroke: `${colors}40`, },
+                  text: { fill: colors, fontWeight: 'bold', fontSize: Shared.Text.small, },
+                }}/>
+              </div>}
         
-        <div  style={{color:colors, fontSize:Shared.Text.large, fontWeight:'bold'}}>
-          {icon2}
-        </div>
     </motion.div>
   )
 }

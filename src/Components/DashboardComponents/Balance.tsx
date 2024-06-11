@@ -1,7 +1,6 @@
 
 // import { motion } from "framer-motion"
 import { Shared } from "../../assets/Shared"
-import { DollarCircle} from 'iconoir-react'
 import Analytics from "../../Atoms/Analytics"
 import Dropdown from "../../Atoms/Buttons/Dropdown"
 
@@ -26,9 +25,9 @@ const Balance : React.FC<Props> = ({dropdown, setDropdown, index, setIndex}) => 
         </div>
 
         <div className='flex gap-[2%] w-full overflow-scroll md:overflow-visible'>
-          <Analytics icon rate="" colors={'#C2E7B1'} title={'Estimated'} amount={'$4,500.00'} link={'View Net Earnings'} rate2={'+24.25%'} icon2={<DollarCircle/>}/>
-          <Analytics icon rate="" colors={'#9EB1D8'} title={'Estimated'} amount={'$4,500.00'} link={'View Net Earnings'} rate2={'+24.25%'} icon2={<DollarCircle/>}/>
-          <Analytics icon rate="" colors={'#CE7F54'} title={'Estimated'} amount={'$4,500.00'} link={'View Net Earnings'} rate2={'+24.25%'} icon2={<DollarCircle/>}/>
+          <Analytics rate="" colors={'#C2E7B1'} title={'Total Earnings'} amount={'$4,500.00'} link={'View Net Earnings'} rate2={24.25}/>
+          <Analytics rate="" colors={'#9EB1D8'} title={'Total Earnings'} amount={'$4,500.00'} link={'View Net Earnings'} rate2={73.17}/>
+          <Analytics rate="" colors={'#CE7F54'} title={'Total Earnings'} amount={'$4,500.00'} link={'View Net Earnings'} rate2={43.90}/>
         </div>
       </div>
   )
