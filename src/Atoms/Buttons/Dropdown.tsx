@@ -6,13 +6,13 @@ import styles from "../../assets/Shared.module.css";
 interface Props {
   dropdown: boolean;
   setDropdown: (value: boolean) => void;
-  data: string[];
+  data: string[] | React.ReactNode[];
   index: number;
   setIndex: (value: number) => void;
   number?: boolean;
   padding: number;
-  truncate: string;
-  dataStyle: string;
+  truncate?: string;
+  dataStyle?: string;
 }
 
 const Dropdown: React.FC<Props> = ({ dropdown, setDropdown, data, index, setIndex, number, padding, truncate, dataStyle, }) => {

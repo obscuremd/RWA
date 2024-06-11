@@ -1,13 +1,13 @@
 import { 
+  CandlestickChart,
     Commodity,
-    // EaseCurveControlPoints,
-    // GraphUp,
-    // ReportsSolid,
+    EaseCurveControlPoints,
+    GraphUp,
+    ReportsSolid,
     Search, } from "iconoir-react";
 import { useState } from "react";
 import { Shared } from "../../assets/Shared";
 import { motion } from "framer-motion";
-// import Dropdown from "../Dropdown"
 // import { Link } from "react-router-dom";
 import AreaChartComponent from "../../Atoms/Charts/AreaChartComponent";
 import { ipsum, monthlySalesData } from "../../assets/Data";
@@ -23,7 +23,7 @@ const ProjectChart = () => {
   console.log(index);
   console.log(index);
   const [dropdown, setDropdown] = useState(false);
-  // const buttons = [ <EaseCurveControlPoints/>, <GraphUp/>, <CandlestickChart/>, <ReportsSolid/>, ];
+  const buttons = [ <EaseCurveControlPoints/>, <GraphUp/>, <CandlestickChart/>, <ReportsSolid/>, ];
   const [fullText, setFullText] = useState(false);
   // const [activeChart, setActiveChart] = useState(0);
 
@@ -41,24 +41,20 @@ const ProjectChart = () => {
             {/* input */}
             <motion.div
               whileFocus={{ borderColor: "#5d7cb9" }}
-              className={`${styles.box} p-2 flex md:gap-3 justify-center items-center rounded-full`}
+              className={`${styles.box} px-2 flex justify-center items-center rounded-full`}
               style={{ fontSize: Shared.Text.small }}
             >
               <motion.input
                 type="text"
                 placeholder="Search For Insights..."
-                className="outline-none bg-transparent"
+                className="bg-transparent border-transparent outline-transparent"
               />
               <Search />
             </motion.div>
             <Dropdown
-              dataStyle=""
               key={index}
-              truncate=""
-              number
               index={index}
-              data={['']}
-              // data={buttons}
+              data={buttons}
               setIndex={setIndex}
               dropdown={dropdown}
               setDropdown={setDropdown}

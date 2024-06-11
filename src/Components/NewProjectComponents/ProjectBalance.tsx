@@ -51,10 +51,10 @@ const ProjectBalance: React.FC<Props> = ({ dropdown, setDropdown, index, setInde
       </div>
 
       <div className="flex gap-[2%] w-full overflow-scroll md:overflow-visible">
-        <Analytics icon2 rate2="" colors={"#C2E7B1"} icon={<DollarCircle />} title={"Total Earnings"} amount={"$4,500.00"} link={"View Net Earnings"} rate={"+24.8%"} />
-        <Analytics icon2 rate2="" colors={"#9EB1D8"} icon={<DollarCircle />} title={"Estimated"} amount={"$4,500.00"} link={"View Net Earnings"} rate={"+24.8%"} />
-        <Analytics icon2 rate2="" colors={"#CE7F54"} icon={<DollarCircle />} title={"Total Invested"} amount={"$4,500.00"} link={"View Net Earnings"} rate={"+24.8%"} />
-        <Analytics icon2 rate2="" colors={"#CE7F54"} icon={<DollarCircle />} title={"Total Invested"} amount={"$4,500.00"} link={"View Net Earnings"} rate={"+24.8%"} />
+        <Analytics colors={"#C2E7B1"} icon={<DollarCircle />} title={"Total Earnings"} amount={"$4,500.00"} link={"View Net Earnings"} rate={"+24.8%"} />
+        <Analytics colors={"#9EB1D8"} icon={<DollarCircle />} title={"Estimated"} amount={"$4,500.00"} link={"View Net Earnings"} rate={"+24.8%"} />
+        <Analytics colors={"#CE7F54"} icon={<DollarCircle />} title={"Total Invested"} amount={"$4,500.00"} link={"View Net Earnings"} rate={"+24.8%"} />
+        <Analytics colors={"#CE7F54"} icon={<DollarCircle />} title={"Total Invested"} amount={"$4,500.00"} link={"View Net Earnings"} rate={"+24.8%"} />
       </div>
     </div>
   );
