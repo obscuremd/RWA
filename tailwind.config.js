@@ -1,7 +1,6 @@
 /** @type {import('tailwindcss').Config} */
 import colors from 'tailwindcss/colors';
 import headlessui from '@headlessui/tailwindcss'
-import forms from '@tailwindcss/forms'
 
 import withMT from "@material-tailwind/react/utils/withMT";
 
@@ -94,11 +93,11 @@ export default withMT ({
         'dark-tremor-dropdown':
           '0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1)',
       },
-      borderRadius: {
-        'tremor-small': '0.375rem',
-        'tremor-default': '0.5rem',
-        'tremor-full': '9999px',
-      },
+      // borderRadius: {
+      //   'tremor-small': '0.375rem',
+      //   'tremor-default': '0.5rem',
+      //   'tremor-full': '9999px',
+      // },
       fontSize: {
         'tremor-label': ['0.75rem', { lineHeight: '1rem' }],
         'tremor-default': ['0.875rem', { lineHeight: '1.25rem' }],
@@ -136,5 +135,5 @@ export default withMT ({
         /^(fill-(?:slate|gray|zinc|neutral|stone|red|orange|amber|yellow|lime|green|emerald|teal|cyan|sky|blue|indigo|violet|purple|fuchsia|pink|rose)-(?:50|100|200|300|400|500|600|700|800|900|950))$/,
     },
   ],
-  plugins: [headlessui , forms],
+  plugins: [headlessui],
 });

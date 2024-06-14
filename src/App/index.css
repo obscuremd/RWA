@@ -35,3 +35,8 @@ body {
 .box {
   @apply border-[1px] border-[#445B8A] bg-[#2F406480];
 }
+
+
+.AuthInput{
+  @apply bg-[#2F406480] border-[1px] border-[#445B8A] p-1 rounded-full
+}
