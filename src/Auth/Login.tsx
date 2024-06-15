@@ -19,37 +19,18 @@ const Login : React.FC<Props> = ({setActives}) => {
   
   const [activeForm, setActiveForm] = useState(0)
 
-  const {isLoaded, signIn, setActive} =useSignIn()
+  const {isLoaded, signIn} =useSignIn()
   const [loading, setLoading] = useState(false)
 
   const [passwordFocus, setPasswordFocus] = useState(false)
   const [emailFocus, setEmailFocus] = useState(false)
-  const [OTPFocus, setOTPFocus] = useState(false)
 
   const [passwordVisible, setPasswordVisible] = useState(false)
 
   const [email, setEmail]= useState('')
   const [password, setPassword]= useState('')
-  const [code, setCode]= useState('')
 
-  const verify =async()=>{
-   const completeSignIn = await signIn?.create({strategy:'email_code',code })
-
-    if (completeSignIn?.status === 'complete') {
-      setActive(signIn?.createdSessionId)
-      
-      // await setActive({session: completeSignIn.createdSessionId}), console.log(completeSignIn.createdSessionId);
-      setTimeout(()=>{
-        setLoading(false)
-        toast.success('logged in successfully')
-        window.location.reload()
-      },2000)
-    }
-    else{
-      setLoading(false)
-      console.log(completeSignIn)
-    }
-  }
+ 
   
   
   const Login =async()=>{
@@ -176,44 +157,11 @@ const Login : React.FC<Props> = ({setActives}) => {
           </div>}
       
       {activeForm === 1 && 
-        <div className='md:w-[40%] w-full flex flex-col md:gap-11 gap-5 md:px-14 px-5'>
+        <div className='md:w-[40%] w-full flex flex-col md:gap-5 gap-5 md:px-14 px-5'>
         <p style={{fontSize:Shared.Text.xxl, fontWeight:'700'}}>Verify Email</p>
     
-        <p style={{fontSize:Shared.Text.small}} className='flex gap-2'>enter a digit otp to verify your email</p>
+        <p style={{fontSize:Shared.Text.small}} className='flex gap-2'>To verify your identity, please click on the link we have just sent to your email.</p>
         
-        {/* inputs */}
-        <div className='flex flex-col md:gap-5 gap-2 w-full'>
-        
-        {/* Otp */}
-        <motion.div 
-          initial={{x:'-50%', opacity:0}} animate={{x:0, opacity:1, transition:{delay:0.3}}}
-          className='flex gap-3 px-3 w-full rounded-2xl border-[1px] outline-none h-full items-center'
-          style={{borderColor:OTPFocus?'#5979b7':'#445B8A',fontSize:Shared.Text.small}}>
-            <div className='bg-[#2F406480] border-[1px] border-[#445B8A] p-1 rounded-full'>
-            <Mail />
-            </div>
-            <input
-              onFocus={()=>setOTPFocus(true)}
-              onBlur={()=>setOTPFocus(false)}
-              onChange={(e)=>setCode(e.target.value)}
-              type='email'
-              placeholder={'E-mail'} 
-              className="p-3 w-full rounded-l-full bg-transparent outline-none border-none" />
-        </motion.div>
-        
-        </div>
-        
-        <motion.button
-        initial={{x:'-50%', opacity:0}} animate={{x:0, opacity:1, transition:{delay:0.5}}}
-        whileHover={{scale:1.05, boxShadow:'0 0 10px #2F4064BF'}}
-        onClick={verify}
-        style={{fontSize: Shared.Text.large}}
-        className="AuthButton md:px-12 md:py-2 px-3 py-3 w-full rounded-xl font-bold "
-        >
-        {loading
-          ?<l-waveform size="35" stroke="3.5" speed="1" color="white"/>
-          :'Verify'} 
-          </motion.button>
           </div>}
       
       {/* splash & slogan */}
@@ -232,38 +180,3 @@ const Login : React.FC<Props> = ({setActives}) => {
 
 
 
-
-//  const Login : React.FC<Props> = ({setActives})=>{
-
-//   const [active, setActive] = useState(0)
-
-//   const [email, setEmail] = useState('')
-//   const [password, setPassword] = useState('')
-//   const [code, setCode] = useState('')
-
-
-//   return(
-//     <>
-//       {active === 0 && 
-//         <div>
-//         <input type="text" className="AuthInput" value={email} onChange={(e)=>setEmail(e.target.value)}/>
-//         <input type="text" className="AuthInput" value={password} onChange={(e)=>setPassword(e.target.value)}/>
-//         <button className="AuthButton" onClick={()=>console.log(email)}>Submit</button>
-//       </div>}
-//       {active === 1 && 
-      
-//       <div>
-      
-//         <input type="text" className="AuthInput" value={code} onChange={(e)=>setCode(e.target.value)}/>
-//         <button className="AuthButton">Submit</button>
-//       </div>}
-
-//     </>
-//   )
-// }
-
-// interface Props{
-//   setActives: (value: number) => void
-// }
-
-// export default Login
