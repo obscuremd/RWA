@@ -33,10 +33,12 @@ const Login : React.FC<Props> = ({setActives}) => {
   const [code, setCode]= useState('')
 
   const verify =async()=>{
-   const completeSignIn = await signIn?.attemptFirstFactor({code: code})
+   const completeSignIn = await signIn?.create({strategy:'email_code',code })
 
     if (completeSignIn?.status === 'complete') {
-      await setActive({session: completeSignIn.createdSessionId}), console.log(completeSignIn.createdSessionId);
+      setActive(signIn?.createdSessionId)
+      
+      // await setActive({session: completeSignIn.createdSessionId}), console.log(completeSignIn.createdSessionId);
       setTimeout(()=>{
         setLoading(false)
         toast.success('logged in successfully')
@@ -67,18 +69,21 @@ const Login : React.FC<Props> = ({setActives}) => {
 
       try {
         await signIn.create({
+          strategy:'email_link',
+          redirectUrl:`${window.location.origin}/`,
+
           identifier: email,
-          password: password
+          // password: password
         })
 
-      await signIn.prepareFirstFactor({strategy:'email_code'})
 
-      setActiveForm(2)
-
-        // setTimeout(()=>{
-        //   toast.success('code sent')
-        //   window.location.reload()
-        // },2000)
+      
+      setTimeout(()=>{
+        toast.success('code sent')
+        setActiveForm(1)
+        setLoading(false)
+          // window.location.reload()
+        },2000)
         
         
       } catch (err:unknown) {
@@ -91,6 +96,7 @@ const Login : React.FC<Props> = ({setActives}) => {
         }else{
           toast.error(JSON.stringify(error.errors && error.errors[0]?.code))
           console.log(JSON.stringify(error));
+          console.log(error)
         }
       }
     }
