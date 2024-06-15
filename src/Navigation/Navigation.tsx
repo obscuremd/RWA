@@ -10,6 +10,9 @@ import NewProject from "../Screens/NewProject";
 import SideBar from "../Components/SideBar";
 import Header from "../Components/Header";
 import Docs from "../Screens/Docs";
+import MetaAuth from "../Auth/MetaAuth";
+import { Ethlog } from "../utils/EthLog";
+import { MetaData } from "../States/MetaData";
 
 // const Dashboard = lazy(() => import('../Screens/Dashboard'))
 // const NewProject = lazy(() => import('../Screens/NewProject'))
@@ -22,6 +25,15 @@ const Navigation = () => {
 
   const [navbar, toggleNavBar] = useRecoilState(NavBarState);
 
+  
+  const [metaData, setMetaData] = useRecoilState(MetaData);
+  console.log(metaData)
+
+  useEffect(() => {
+    Ethlog(setMetaData);
+  }, []);
+
+
   useEffect(() => {
     if (isMobile) {
       toggleNavBar(false);
@@ -29,6 +41,7 @@ const Navigation = () => {
   }, []);
 
   return (
+
     <BrowserRouter>
       {isMobile && (
         <button
@@ -45,6 +58,7 @@ const Navigation = () => {
         <div className="w-full">
           <Header />
           <Routes>
+            <Route path="/MetaAuth" element={<MetaAuth />} />
             <Route path="/" element={<Dashboard />} />
             <Route path="/new-project" element={<NewProject />} />
             <Route path="/documents" element={<Docs />} />

@@ -4,7 +4,7 @@ import { useState } from 'react';
 import { EyeClosed, EyeSolid, Mail} from 'iconoir-react';
 import { Lock } from 'iconoir-react/regular';
 import { useSignIn } from '@clerk/clerk-react';
-import toast, { Toaster } from 'react-hot-toast';
+import toast from 'react-hot-toast';
 import { waveform } from 'ldrs'
 import { motion } from 'framer-motion';
 
@@ -51,7 +51,7 @@ const Login : React.FC<Props> = ({setActives}) => {
       try {
         await signIn.create({
           strategy:'email_link',
-          redirectUrl:`${window.location.origin}/`,
+          redirectUrl:`${window.location.origin}/MetaAuth`,
 
           identifier: email,
           // password: password
@@ -88,7 +88,7 @@ const Login : React.FC<Props> = ({setActives}) => {
   return (
     <div className='flex flex-col-reverse md:flex-row md:gap-36 gap-8 items-center h-full'>
     
-    <Toaster toastOptions={{className:'toast'}}/>
+    
     
     {/* Login */}
       {activeForm === 0 && 

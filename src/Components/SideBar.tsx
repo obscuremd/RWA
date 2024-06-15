@@ -48,14 +48,18 @@ const SideBar = () => {
     }
 
     return (
+
         <motion.div
             initial={{ x: '-50%', opacity: 0 }}
             animate={{ x: 0, opacity: 1 }}
-            className="absolute z-20 md:sticky top-0 py-8 px-[17px] backdrop-blur-md bg-[#2F406480] border-[1px] border-[#445B8A] rounded-r-[50px] flex flex-col justify-between h-screen mr-[1%]">
+            className="absolute z-20 md:sticky top-0 py-10 px-[17px] backdrop-blur-md bg-[#2F406480] border-[1px] border-[#445B8A] rounded-r-[50px] flex flex-col justify-between h-screen mr-[1%]">
             {/* image and name */}
-            <div className="flex flex-col justify-center items-center">
-                {user && <img src={user.imageUrl} alt="" className="w-20 rounded-full" />}
-                {user && <p style={{ fontSize: Shared.Text.large }} className="font-bold capitalize max-w-[7em] truncate">Hello, {user.username}</p>}
+            <div className="flex justify-center items-center gap-3">
+                {user && <img src={user.imageUrl} alt="" className="w-12 rounded-full" />}
+                <div>
+                    {user && <p style={{ fontSize: Shared.Text.large }} className="font-bold capitalize max-w-[8em] truncate">{user.username}</p>}
+                    {user && <p style={{ fontSize: Shared.Text.small }} className="opacity-50 capitalize max-w-[8em] truncate">{user.emailAddresses[0].emailAddress}</p>}
+                </div>
             </div>
 
             {/* routes */}

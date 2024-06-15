@@ -20,8 +20,6 @@ import Dropdown from "../../Atoms/Buttons/Dropdown";
 const ProjectChart = () => {
   const isMobile = window.innerWidth < 768;
   const [index, setIndex] = useState(0);
-  console.log(index);
-  console.log(index);
   const [dropdown, setDropdown] = useState(false);
   const buttons = [ <EaseCurveControlPoints/>, <GraphUp/>, <CandlestickChart/>, <ReportsSolid/>, ];
   const [fullText, setFullText] = useState(false);

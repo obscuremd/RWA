@@ -1,8 +1,10 @@
 
 // import { motion } from "framer-motion"
+import { useRecoilValue } from "recoil"
 import { Shared } from "../../assets/Shared"
 import Analytics from "../../Atoms/Analytics"
 import Dropdown from "../../Atoms/Buttons/Dropdown"
+import { MetaData } from "../../States/MetaData"
 
 
 const projects =['Project 1', 'Gold Project', 'House Project', 'Smart Contract', 'BUI contract', 'Erhenede Mudiaga Daniel']
@@ -15,6 +17,9 @@ interface Props{
 }
 
 const Balance : React.FC<Props> = ({dropdown, setDropdown, index, setIndex}) => {
+
+  const balance = useRecoilValue(MetaData)
+
   return (
     <div className="flex flex-col md:flex-row justify-between gap-5 w-full md:items-center">
 
@@ -25,7 +30,7 @@ const Balance : React.FC<Props> = ({dropdown, setDropdown, index, setIndex}) => 
         </div>
 
         <div className='flex gap-[2%] w-full overflow-scroll md:overflow-visible'>
-          <Analytics rate="" colors={'#C2E7B1'} title={'Total Earnings'} amount={'$4,500.00'} link={'View Net Earnings'} rate2={24.25}/>
+          <Analytics rate="" colors={'#C2E7B1'} title={'Meta Balance'} amount={`$${balance}0`} link={'View Net Earnings'} rate2={24.25}/>
           <Analytics rate="" colors={'#9EB1D8'} title={'Total Earnings'} amount={'$4,500.00'} link={'View Net Earnings'} rate2={73.17}/>
           <Analytics rate="" colors={'#CE7F54'} title={'Total Earnings'} amount={'$4,500.00'} link={'View Net Earnings'} rate2={43.90}/>
         </div>

@@ -14,7 +14,6 @@ import Dropdown from "../../Atoms/Buttons/Dropdown";
 const Chart = () => {
   const isMobile = window.innerWidth < 768;
   const [index, setIndex] = useState(0);
-  console.log(index);
   const [dropdown, setDropdown] = useState(false);
   const buttons = [ <EaseCurveControlPoints key={""} />, <GraphUp key={""} />, <CandlestickChart key={""} />, <ReportsSolid key={""} />, ];
   const period = [ "Daily Insights", "Weekly Insights", "Monthly Insights", "Yearly Insights", ];

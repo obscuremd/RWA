@@ -4,7 +4,7 @@ import { useState } from 'react';
 import { EyeClosed, EyeSolid, Mail, User } from 'iconoir-react';
 import { Lock } from 'iconoir-react/regular';
 import { useSignUp } from '@clerk/clerk-react';
-import toast, { Toaster } from 'react-hot-toast';
+import toast from 'react-hot-toast';
 import { motion } from 'framer-motion';
 
 interface Props{
@@ -115,7 +115,6 @@ const Register : React.FC<Props> = ({setActives}) => {
 
   return (
     <div className='flex flex-col-reverse md:flex-row md:gap-36 gap-8 items-center h-full'>
-      <Toaster toastOptions={{className:'toast'}}/>
       
       {/* create account */}
       <div className='md:w-[40%] w-full flex flex-col md:gap-11 gap-5 md:px-14 px-5'>

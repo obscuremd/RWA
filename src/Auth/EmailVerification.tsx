@@ -3,7 +3,7 @@ import { Shared } from '../assets/Shared'
 import { useState } from 'react';
 import { useSignUp } from '@clerk/clerk-react';
 import { Mail } from 'iconoir-react';
-import toast, { Toaster } from 'react-hot-toast';
+import toast from 'react-hot-toast';
 
 interface Props{
   setActives: (value: number) => void
@@ -73,7 +73,6 @@ const EmailVerification : React.FC<Props> =({setActives}) => {
   return (
     <div className='flex flex-col-reverse md:flex-row md:gap-36 gap-8 items-center h-full'>
     
-    <Toaster toastOptions={{className:'toast'}}/>
     
     
     {/* create account */}
