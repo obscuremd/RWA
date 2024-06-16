@@ -1,11 +1,10 @@
 import { Link } from "react-router-dom"
-import { Shared } from "../assets/Shared"
 // import { MoneySquare } from "iconoir-react/solid"
 import { motion } from "framer-motion"
-import styles from '../assets/Shared.module.css'
 
-import { CircularProgressbar } from 'react-circular-progressbar';
 import 'react-circular-progressbar/dist/styles.css';
+import CircleProgress from "./CircleProgress";
+import Chip from "./Chip";
 
 interface Props{
   colors: string, 
@@ -23,11 +22,11 @@ const Analytics: React.FC<Props> =({colors, icon, title, link, amount, rate, rat
       initial={{x:100, opacity:0}}
       animate={{x:0, opacity:1}}
       whileHover={{scale:1.05, boxShadow:'0 0 20px rgba(68, 91, 138, 0.25)', zIndex:20}}
-      className={`${styles.box} w-full flex items-center justify-between md:py-7 py-4 md:px-5 px-3 md:rounded-3xl rounded-2xl`}>
+      className={`box w-full flex items-center justify-between md:py-7 py-4 md:px-5 px-3 md:rounded-3xl rounded-2xl`}>
       {/* Right */}
       <div className="Right flex flex-col gap-2">
         {/* icon?? and title */}
-        <div className="flex items-center gap-[5%]" style={{fontSize:Shared.Text.small}}>
+        <div className="flex items-center gap-[5%] text_small">
             {icon &&
                 <div style={{backgroundColor: `${colors}40`, color:colors}} className=' inline-flex md:p-2 p-1 rounded-md'>
                     {icon}
@@ -36,31 +35,23 @@ const Analytics: React.FC<Props> =({colors, icon, title, link, amount, rate, rat
         </div>
         {/* amount */}
         
-        <p style={{fontSize:Shared.Text.large, fontWeight:'bold'}}>{amount}</p>
+        <p className="text_large font-bold">{amount}</p>
         {/* rate */}
         {rate &&
-            <div  style={{backgroundColor: `${colors}40`}} className="p-1 w-fit rounded-lg inline-flex">
-              
-              <p style={{fontSize:Shared.Text.small, fontWeight:'bold', color:colors}} className="inline-flex">{rate}</p>
-            </div>}
+          <Chip color={colors} text={rate}/>
+        }
         {/* link */}
-        <Link to={''} style={{fontSize:Shared.Text.small}} className="underline opacity-50 text-nowrap">{link}</Link>
+        <Link to={''} className="underline opacity-50 text-nowrap text_small">{link}</Link>
       </div>
 
       {/* left */}
 
           {rate2 &&
-            <div className="w-24">
-              <CircularProgressbar 
-                value={rate2} 
-                maxValue={100} 
-                text={`+${rate2}%`}
-                styles={{
-                  path: { stroke: colors, },
-                  trail: { stroke: `${colors}40`, },
-                  text: { fill: colors, fontWeight: 'bold', fontSize: Shared.Text.small, },
-                }}/>
-              </div>}
+          <div className="ml-5 md:ml-0">
+
+            <CircleProgress color={colors} value={rate2}/>
+          </div>
+            }
         
     </motion.div>
   )

@@ -9,7 +9,7 @@ import AreaChartComponent from "../../Atoms/Charts/AreaChartComponent";
 import LineChartComponent from "../../Atoms/Charts/LineChartComponent";
 import ComposedChartComponent from "../../Atoms/Charts/ComposedChartComponent";
 import BarChartComponent from "../../Atoms/Charts/BarChartComponent";
-import Dropdown from "../../Atoms/Buttons/Dropdown";
+import {Dropdown} from "../../Atoms/Buttons/Dropdown";
 
 const Chart = () => {
   const isMobile = window.innerWidth < 768;

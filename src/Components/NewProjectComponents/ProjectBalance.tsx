@@ -1,6 +1,7 @@
 import { Shared } from "../../assets/Shared";
-import { DollarCircle, Plus } from "iconoir-react";
+import { DollarCircle } from "iconoir-react";
 import Analytics from "../../Atoms/Analytics";
+import { AddButton } from "../../Atoms/Buttons/AddButton";
 
 interface Props{
   dropdown:boolean, 
@@ -28,25 +29,10 @@ const ProjectBalance: React.FC<Props> = ({ dropdown, setDropdown, index, setInde
         </p>
         {/* buttons */}
         <div className="flex gap-[2%]">
-          <button
-            className="md:p-2 p-1 bg-[#2F406480] border-[1px] border-[#445B8A] rounded-full flex items-center md:gap-[5%] gap-[10px] md:w-full w-fit"
-            style={{ fontSize: Shared.Text.small }}
-          >
-            <div className="md:p-1 bg-[#2F406480] border-[1px] border-[#445B8A] rounded-full w-fit">
-              <Plus />
-            </div>
-            <p className="text-nowrap min-w-[7em]">New Project</p>
-          </button>
+          <AddButton func={()=>console.log(1)} name='Projects'/>
+          <AddButton func={()=>console.log(1)} name='Discover'/>
 
-          <button
-            className="md:p-2 p-1 bg-[#2F406480] border-[1px] border-[#445B8A] rounded-full flex items-center md:gap-[5%] gap-[10px] md:w-full w-fit"
-            style={{ fontSize: Shared.Text.small }}
-          >
-            <div className="md:p-1 bg-[#2F406480] border-[1px] border-[#445B8A] rounded-full w-fit">
-              <Plus />
-            </div>
-            <p className="text-nowrap min-w-[7em]">Discover</p>
-          </button>
+          
         </div>
       </div>
 

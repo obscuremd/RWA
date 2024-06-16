@@ -20,7 +20,7 @@ body {
 }
 
 .text_small {
-  @apply text-sm md:text-base;
+  @apply text-[0.6rem] md:text-[0.8rem];
 }
 .text_medium {
   @apply text-base md:text-lg;

@@ -15,7 +15,7 @@ import BarChartComponent from "../../Atoms/Charts/BarChartComponent";
 import LineChartComponent from "../../Atoms/Charts/LineChartComponent";
 import ComposedChartComponent from "../../Atoms/Charts/ComposedChartComponent";
 import styles from "../../assets/Shared.module.css";
-import Dropdown from "../../Atoms/Buttons/Dropdown";
+import { Dropdown } from "../../Atoms/Buttons/Dropdown";
 
 const ProjectChart = () => {
   const isMobile = window.innerWidth < 768;

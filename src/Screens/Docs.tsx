@@ -1,17 +1,18 @@
-// import {
-//     MagnifyingGlassIcon,
-//     ChevronUpDownIcon,
-// } from "@heroicons/react/24/outline";
-// import { PencilIcon, UserPlusIcon } from "@heroicons/react/24/solid";
+
+
+import ProjectChart from "../Components/NewProjectComponents/ProjectChart";
+
+import Hero from "../Components/DocsComponents/Hero";
 const Docs = () => {
-
-    // const [tabValue, setTabValue] = useState(0)
-
+    
     return (
-       <div>
-        pp
-       </div>
-    )
+      <div className="container md:p-[2%] p-[4%] flex flex-col gap-6">
+        {/* part 1 */}
+        <Hero/>
+        <ProjectChart />
+        
+      </div>
+    );
 }
 
 export default Docs

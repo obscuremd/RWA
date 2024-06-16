@@ -3,7 +3,7 @@
 import { useRecoilValue } from "recoil"
 import { Shared } from "../../assets/Shared"
 import Analytics from "../../Atoms/Analytics"
-import Dropdown from "../../Atoms/Buttons/Dropdown"
+import {Dropdown} from "../../Atoms/Buttons/Dropdown"
 import { MetaData } from "../../States/MetaData"
 
 

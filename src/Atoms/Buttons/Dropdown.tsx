@@ -15,7 +15,7 @@ interface Props {
   dataStyle?: string;
 }
 
-const Dropdown: React.FC<Props> = ({ dropdown, setDropdown, data, index, setIndex, number, padding, truncate, dataStyle, }) => {
+export const Dropdown: React.FC<Props> = ({ dropdown, setDropdown, data, index, setIndex, number, padding, truncate, dataStyle, }) => {
   
   truncate
   const projects = data;
@@ -58,4 +58,3 @@ const Dropdown: React.FC<Props> = ({ dropdown, setDropdown, data, index, setInde
   );
 };
 
-export default Dropdown;
