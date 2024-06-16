@@ -13,7 +13,11 @@ app.use(cors())
 app.use(express.json())
 
 app.get('/', (req, res) => {
-    res.send('Welcome hello world')
+    res.send('Welcome hello worldss')
+})
+
+app.get('/hi', (req, res) => {
+    res.send('arigato gozilla matsu des ka sta des uu ni san')
 })
 
 app.listen(PORT, ()=> {
