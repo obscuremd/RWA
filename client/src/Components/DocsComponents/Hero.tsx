@@ -3,7 +3,7 @@ import FolderDescription from './FolderDescription'
 
 const Hero = () => {
   return (
-    <div className='flex flex-col md:flex-row md:gap-[10%] gap-5 items-center'>
+    <div className='flex flex-col md:flex-row md:gap-[10%] gap-5 items-center h-full'>
         <Folder/>
         <FolderDescription/>
     </div>

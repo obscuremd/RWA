@@ -51,7 +51,7 @@ const Login : React.FC<Props> = ({setActives}) => {
       try {
         await signIn.create({
           strategy:'email_link',
-          redirectUrl:`${window.location.origin}/MetaAuth`,
+          redirectUrl:`${window.location.origin}/`,
 
           identifier: email,
           // password: password

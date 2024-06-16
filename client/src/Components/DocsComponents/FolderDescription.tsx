@@ -34,7 +34,7 @@ const Columns:React.FC<ColumnProps> =({head1, property1,head2, property2,element
 
 const FolderDescription = () => {
   return (
-    <div className='flex flex-col gap-6 md:items-end'>
+    <div className='flex flex-col md:items-end h-full justify-between'>
       {/* buttons */}
       <div className='flex items-center gap-2'>
         <Button func={()=>console.log(1)} name='Edit' icon={<NavArrowDown/>}/>

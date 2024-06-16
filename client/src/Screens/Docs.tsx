@@ -1,15 +1,13 @@
-
-
-import ProjectChart from "../Components/NewProjectComponents/ProjectChart";
-
 import Hero from "../Components/DocsComponents/Hero";
+import Table from "../Components/DocsComponents/Table";
+
 const Docs = () => {
     
     return (
       <div className="container md:p-[2%] p-[4%] flex flex-col gap-6">
         {/* part 1 */}
         <Hero/>
-        <ProjectChart />
+        <Table />
         
       </div>
     );
