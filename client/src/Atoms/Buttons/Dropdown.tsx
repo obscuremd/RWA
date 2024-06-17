@@ -1,4 +1,4 @@
-import { motion } from "framer-motion";
+import { AnimatePresence, motion } from "framer-motion";
 import { NavArrowDown } from "iconoir-react";
 import { Shared } from "../../assets/Shared";
 import styles from "../../assets/Shared.module.css";
@@ -36,23 +36,26 @@ export const Dropdown: React.FC<Props> = ({ dropdown, setDropdown, data, index, 
         <p className={` ${dataStyle}`}>{projects[index]}</p>
         <NavArrowDown className="text-[#445B8A]" />
         {/* options */}
-        {dropdown && (
-          <motion.div
-          initial={{ y: -50, opacity: 0 }}
-          animate={{ y: 0, opacity: 1 }}
-          className={`${styles.box} absolute top-[120%] py-3 px-3 rounded-3xl flex flex-col gap-2 backdrop-blur-lg z-10`}
-          >
-          {projects.map((item, index) => (
-            <button
-            onClick={() => setIndex(index)}
-            className="py-1 px-4 border-[1px] border-[#445b8a74] rounded-full w-[10em] truncate"
-            key={index}
+        <AnimatePresence>
+          {dropdown && (
+            <motion.div
+            initial={{ y: -50, opacity: 0 }}
+            animate={{ y: 0, opacity: 1 }}
+            exit={{ y: -10, opacity: 0 }}
+            className={`${styles.box} absolute top-[120%] py-3 px-3 rounded-3xl flex flex-col gap-2 backdrop-blur-lg z-10`}
             >
-            {item}
-            </button>
-        ))}
-        </motion.div>
-      )}
+            {projects.map((item, index) => (
+              <button
+              onClick={() => setIndex(index)}
+              className="py-1 px-4 border-[1px] border-[#445b8a74] rounded-full w-[10em] truncate"
+              key={index}
+              >
+              {item}
+              </button>
+          ))}
+          </motion.div>
+        )}
+        </AnimatePresence>
       </button>
     </div>
   );
