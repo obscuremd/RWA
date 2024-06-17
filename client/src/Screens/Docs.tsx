@@ -1,5 +1,5 @@
 import Hero from "../Components/DocsComponents/Hero";
-import Table from "../Components/DocsComponents/Table";
+import Table from "../Atoms/Table";
 
 const Docs = () => {
     

@@ -2,6 +2,7 @@ import { useState } from 'react'
 import { Shared } from '../assets/Shared'
 import styles from '../assets/Shared.module.css'
 import { NavArrowDown } from 'iconoir-react'
+import { AnimatePresence, motion } from 'framer-motion';
 
 
 interface Transaction {
@@ -32,16 +33,17 @@ const List: React.FC<Props> =({title, data, date}) => {
       </div>
       {/* content */}
 
-
-      {isMobile && active || !isMobile ?
-        transactions && transactions.map((item, index)=>(
-        <div key={index} style={{fontSize:Shared.Text.small}} className={`${styles.box} py-2 px-4 rounded-xl flex justify-between w-full items-center`}>
-          <div className={`${styles.box} p-2 rounded-full inline-flex justify-center`}>{item.icon}</div>
-          <p>{item.name}</p>
-          {date && <p className='opacity-50'>{item.date}</p>}
-          <p style={{color:item.type?'#C2E7B1':'#A13334'}}>{item.amount}</p>
-        </div>
-      )):null}
+      <AnimatePresence>
+        {isMobile && active || !isMobile ?
+          transactions && transactions.map((item, index)=>(
+          <motion.div initial={{y:-20}} animate={{y:0}} exit={{y:-20}} key={index} style={{fontSize:Shared.Text.small}} className={`${styles.box} py-2 px-4 rounded-xl flex justify-between w-full items-center`}>
+            <div className={`${styles.box} p-2 rounded-full inline-flex justify-center`}>{item.icon}</div>
+            <p>{item.name}</p>
+            {date && <p className='opacity-50'>{item.date}</p>}
+            <p style={{color:item.type?'#C2E7B1':'#A13334'}}>{item.amount}</p>
+          </motion.div>
+        )):null}
+      </AnimatePresence>
     </div>
   )
 }

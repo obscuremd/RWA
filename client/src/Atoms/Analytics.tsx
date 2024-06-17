@@ -35,7 +35,7 @@ const Analytics: React.FC<Props> =({colors, icon, title, link, amount, rate, rat
         </div>
         {/* amount */}
         
-        <p className="text_large font-bold">{amount}</p>
+        <p className="text_medium font-bold">{amount}</p>
         {/* rate */}
         {rate &&
           <Chip color={colors} text={rate}/>

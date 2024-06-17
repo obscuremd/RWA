@@ -2,7 +2,7 @@ import { CoinsSwap, HomeShield, HomeSimple, Journal, MultiplePages, Plus } from 
 import { Shared } from "../assets/Shared"
 import { Link } from "react-router-dom"
 import { useState } from "react"
-import { motion } from "framer-motion"
+import { AnimatePresence, motion } from "framer-motion"
 import { useClerk } from "@clerk/clerk-react"
 
 
@@ -49,33 +49,36 @@ const SideBar = () => {
 
     return (
 
-        <motion.div
-            initial={{ x: '-50%', opacity: 0 }}
-            animate={{ x: 0, opacity: 1 }}
-            className="absolute z-20 md:sticky top-0 py-10 px-[17px] backdrop-blur-md bg-[#2F406480] border-[1px] border-[#445B8A] rounded-r-[50px] flex flex-col justify-between h-screen mr-[1%]">
-            {/* image and name */}
-            <div className="flex justify-center items-center gap-3">
-                {user && <img src={user.imageUrl} alt="" className="w-12 rounded-full" />}
-                <div>
-                    {user && <p style={{ fontSize: Shared.Text.large }} className="font-bold capitalize max-w-[8em] truncate">{user.username}</p>}
-                    {user && <p style={{ fontSize: Shared.Text.small }} className="opacity-50 capitalize max-w-[8em] truncate">{user.emailAddresses[0].emailAddress}</p>}
+        <AnimatePresence>
+            <motion.div
+                initial={{ x: '-50%', opacity: 0 }}
+                animate={{ x: 0, opacity: 1 }}
+                exit={{ x: '-50%', opacity: 0 }}
+                className="absolute z-20 md:sticky top-0 py-10 px-[17px] backdrop-blur-md bg-[#2F406480] border-[1px] border-[#445B8A] rounded-r-[50px] flex flex-col justify-between h-screen mr-[1%]">
+                {/* image and name */}
+                <div className="flex justify-center items-center gap-3">
+                    {user && <img src={user.imageUrl} alt="" className="w-12 rounded-full" />}
+                    <div>
+                        {user && <p style={{ fontSize: Shared.Text.large }} className="font-bold capitalize max-w-[8em] truncate">{user.username}</p>}
+                        {user && <p style={{ fontSize: Shared.Text.small }} className="opacity-50 capitalize max-w-[8em] truncate">{user.emailAddresses[0].emailAddress}</p>}
+                    </div>
                 </div>
-            </div>
 
-            {/* routes */}
-            <div style={{ fontSize: Shared.Text.small }} className="flex flex-col gap-3">
-                {buttonProps.map((item, index) => (
-                    <Button key={index} name={item.name} icon={item.icon} link={item.link} number={index} />
-                ))}
-            </div>
+                {/* routes */}
+                <div style={{ fontSize: Shared.Text.small }} className="flex flex-col gap-3">
+                    {buttonProps.map((item, index) => (
+                        <Button key={index} name={item.name} icon={item.icon} link={item.link} number={index} />
+                    ))}
+                </div>
 
-            {/* newsletter */}
-            <div className="p-3 border-[1px] border-[#445B8A] rounded-3xl flex flex-col gap-4">
-                <div className="w-12 h-12 rounded-full border-[1px] border-[#445B8A]"></div>
-                <p style={{ fontSize: Shared.Text.small }}>sign up for our news letter<br /> get the latest updates</p>
-                <div style={{ fontSize: Shared.Text.small }} className="p-2 rounded-full border-[1px] border-[#445B8A] text-center text-nowrap">Subscribe Now</div>
-            </div>
-        </motion.div>
+                {/* newsletter */}
+                <div className="p-3 border-[1px] border-[#445B8A] rounded-3xl flex flex-col gap-4">
+                    <div className="w-12 h-12 rounded-full border-[1px] border-[#445B8A]"></div>
+                    <p style={{ fontSize: Shared.Text.small }}>sign up for our news letter<br /> get the latest updates</p>
+                    <div style={{ fontSize: Shared.Text.small }} className="p-2 rounded-full border-[1px] border-[#445B8A] text-center text-nowrap">Subscribe Now</div>
+                </div>
+            </motion.div>
+        </AnimatePresence>
     )
 }
 

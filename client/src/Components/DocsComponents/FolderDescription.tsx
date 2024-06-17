@@ -34,18 +34,18 @@ const Columns:React.FC<ColumnProps> =({head1, property1,head2, property2,element
 
 const FolderDescription = () => {
   return (
-    <div className='flex flex-col md:items-end h-full justify-between'>
+    <div className='flex flex-col md:items-end h-full justify-between w-full md:w-fit'>
       {/* buttons */}
-      <div className='flex items-center gap-2'>
+      <div className='flex items-center gap-2 self-end'>
         <Button func={()=>console.log(1)} name='Edit' icon={<NavArrowDown/>}/>
         <AddButton func={()=>console.log(1)} name='add document'/>
       </div>
 
       {/* info */}
-      <div className='flex flex-col gap-8'>
+      <div className='flex flex-col gap-8 '>
         <p className='text_medium font-bold'>Genshin Impact</p>
 
-        <div className='flex gap-5'>
+        <div className='flex gap-5 justify-between'>
 
           {/* column 1 */}
             <Columns head1={'type'} property1='pdf' head2='status' element={<Chip text='Completed' color='#C2E7B1'/>}/>
