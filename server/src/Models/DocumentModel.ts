@@ -1,3 +1,4 @@
+import { timeStamp } from "console";
 import mongoose, { models } from "mongoose";
 
 const document = new mongoose.Schema({
@@ -9,7 +10,7 @@ const document = new mongoose.Schema({
     connections:    {type: Boolean, default: false},
     billing:        {type: Boolean, default: false},
     sharing:        {type: Boolean, default: false},
-})
+}, {timestamps:true})
 
 const Document = mongoose.model('Documents', document) || models.document
 export default Document

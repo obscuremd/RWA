@@ -10,8 +10,13 @@ const app = express();
 
 const PORT = process.env.PORT || 3000
 
+const mongoUrl = process?.env?.MONGO_URL
+if (!mongoUrl) {
+    throw new Error("MONGO_URL environment variable is not defined");
+}
+
 // connect to mongoose
-mongoose.connect('mongodb+srv://mderhenede:Rukki_1357@cluster0.qsd2cin.mongodb.net/Rwa')
+mongoose.connect(mongoUrl)
 mongoose.connection.on('connected',()=>{console.log('mongoDB connection established');})
 mongoose.connection.on('error',()=>{console.log('connection error');})
 

@@ -39,7 +39,7 @@ router.get('/:id', async(req, res) => {
 })
 
 // update user docs
-router.get('/:id', async(req, res) => {
+router.put('/:id', async(req, res) => {
     try {
             const doc = await Document.findByIdAndUpdate(req.params.id)
 
