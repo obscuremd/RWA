@@ -22,6 +22,7 @@
     "typescript": "^5.4.5"
   },
   "dependencies": {
+    "@types/mongoose": "^5.11.97",
     "concurrently": "^8.2.2",
     "cors": "^2.8.5",
     "dotenv": "^16.4.5",
