@@ -5,9 +5,10 @@ interface Props {
   name: string;
   func: ()=>void;
   icon?: React.ReactNode
+  icon2?: React.ReactNode
 }
 
-export const Button: React.FC<Props> = ({name,func,icon}) => {
+export const Button: React.FC<Props> = ({name,func,icon,icon2}) => {
   
   return (
       <motion.button
@@ -15,8 +16,9 @@ export const Button: React.FC<Props> = ({name,func,icon}) => {
         onClick={() => func}
         className={`box rounded-full flex items-center gap-[5px] relative px-[5px] py-[4px] text_small h-fit`}
         >
+          {icon}
         <p className='text_small '>{name}</p>
-        {icon}
+        {icon2}
       </motion.button>
   );
 };
