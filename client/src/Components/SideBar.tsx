@@ -54,7 +54,7 @@ const SideBar = () => {
                 initial={{ x: '-50%', opacity: 0 }}
                 animate={{ x: 0, opacity: 1 }}
                 exit={{ x: '-50%', opacity: 0 }}
-                className=" fixed top-0 z-20 md:sticky top-0 py-10 px-[17px] backdrop-blur-md bg-[#2F406480] border-[1px] border-[#445B8A] rounded-r-[50px] flex flex-col justify-between h-screen mr-[1%]">
+                className=" fixed z-20 md:sticky top-0 py-10 px-[17px] backdrop-blur-md bg-[#2F406480] border-[1px] border-[#445B8A] rounded-r-[50px] flex flex-col justify-between h-screen mr-[1%]">
                 {/* image and name */}
                 <div className="flex justify-center items-center gap-3">
                     {user && <img src={user.imageUrl} alt="" className="w-12 rounded-full" />}
