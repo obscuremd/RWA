@@ -109,6 +109,7 @@ const AddDocument = () => {
             setTimeout(() => {
                 toast.success('document uploaded successfully')
                 setAddDocumentVisible(false)
+                window.location.reload()
             }, 5000);
         } catch (error) {
             setCreateDocumentLoading(false);

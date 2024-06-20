@@ -25,7 +25,6 @@ const Docs = () => {
       setDocs(res.data)
       setTimeout(() => {
         setDocFetching(false)
-        console.log(res.data)
       }, 2000);
     }
 

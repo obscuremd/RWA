@@ -108,6 +108,7 @@ const Table:React.FC<Props> = () => {
                   animate={{y:0, opacity:1}}
                   exit={{y:-20, opacity:0}}
                   className="absolute box md:p-5 p-3 top-6 right-7 z-10 backdrop-blur-sm rounded-2xl flex flex-col md:gap-7 gap-3">
+                    <p>Download</p>
                     <p>edit</p>
                     <p>share</p>
                     <p>Delete</p>

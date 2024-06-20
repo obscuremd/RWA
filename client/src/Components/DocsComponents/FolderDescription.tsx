@@ -57,7 +57,6 @@ const FolderDescription = () => {
   const activeDoc = useRecoilValue(activeTable)
   const doc = useRecoilValue<Document[]>(DocsData)
   const specificDoc: Document | undefined = doc[activeDoc]
-  console.log(specificDoc)
   
   const [addDocumentVisible, setAddDocumentVisible] = useRecoilState(AddDocumentState)
   addDocumentVisible
