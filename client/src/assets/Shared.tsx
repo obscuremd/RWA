@@ -40,6 +40,6 @@ export function generateRandomString(length: string | number): string {
 }
 
 
-export const url = 'http://localhost:3000/api'
+export const url = 'https://rwa-tpsg.onrender.com/api'
 
 export const characters = /[`!@#$%^&*()_+\-={};':"\\|,.<>/?~]/;
