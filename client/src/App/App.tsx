@@ -3,6 +3,9 @@ import Navigation from "../Navigation/Navigation";
 import Auth from "../Auth/Auth";
 import { Toaster } from "react-hot-toast";
 import { AnimatePresence, MotionConfig } from "framer-motion";
+import { app } from "../assets/firebaseConfig";
+
+app
 
 const App = () => {
   return (

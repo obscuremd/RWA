@@ -1,12 +1,12 @@
-import { Plus } from "iconoir-react/regular";
 import { motion } from 'framer-motion';
 
 interface Props {
   name: string;
-  func: ()=>void
+  func?: ()=>void
+  icon: React.ReactNode
 }
 
-export const AddButton: React.FC<Props> = ({name,func}) => {
+export const IconButton: React.FC<Props> = ({name,func, icon}) => {
   
   return (
       <motion.button
@@ -15,7 +15,7 @@ export const AddButton: React.FC<Props> = ({name,func}) => {
         className={`box rounded-full flex items-center gap-[5px] relative px-[5px] py-[4px] text_small`}
         >
           <div className={`box p-1 rounded-full w-fit`} >
-          <Plus/>
+          {icon}
           </div>
         <p className='text_small mr-[1em]'>{name}</p>
       </motion.button>

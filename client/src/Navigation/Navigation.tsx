@@ -46,7 +46,7 @@ const Navigation = () => {
       {isMobile && (
         <button
           onClick={() => toggleNavBar(!navbar)}
-          className="absolute rounded-full border-[1px] top-[1.5%] left-[1.5%] border-[#445B8A] bg-[#2f4064] p-2 z-30"
+          className="fixed rounded-full border-[1px] top-[1.5%] left-[1.5%] border-[#445B8A] bg-[#2f4064] p-2 z-30"
           style={{ fontSize: Shared.Text.xl }}
         >
           <Menu />

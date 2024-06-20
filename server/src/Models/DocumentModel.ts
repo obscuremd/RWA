@@ -2,6 +2,7 @@ import { timeStamp } from "console";
 import mongoose, { models } from "mongoose";
 
 const document = new mongoose.Schema({
+    document:       {type: String, required: true},
     name:           {type: String, required: true},
     userId:         {type: String, required: true},
     type:           {type: String, required: true},

@@ -25,7 +25,7 @@ export const Dropdown: React.FC<Props> = ({ dropdown, setDropdown, data, index, 
       {/* dropdown */}
       <button
         onClick={() => setDropdown(!dropdown)}
-        className={`${styles.box} rounded-full flex items-center md:gap-[20px] gap-[10px] relative md:w-full w-fit`}
+        className={`${styles.box} rounded-full flex items-center md:gap-[20px] justify-between gap-[10px] relative md:w-full w-fit`}
         style={{ fontSize: Shared.Text.small, padding: padding }}
         >
         {number && (
@@ -42,7 +42,7 @@ export const Dropdown: React.FC<Props> = ({ dropdown, setDropdown, data, index, 
             initial={{ y: -50, opacity: 0 }}
             animate={{ y: 0, opacity: 1 }}
             exit={{ y: -10, opacity: 0 }}
-            className={`${styles.box} absolute top-[120%] py-3 px-3 rounded-3xl flex flex-col gap-2 backdrop-blur-lg z-10`}
+            className={`${styles.box} absolute top-[120%] py-3 px-3 rounded-3xl flex flex-col gap-2 backdrop-blur-lg z-50`}
             >
             {projects.map((item, index) => (
               <button

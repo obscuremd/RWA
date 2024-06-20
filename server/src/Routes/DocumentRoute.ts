@@ -9,11 +9,11 @@ router.get('/', (req, res) => {
 // create doc
 router.post('/:id', async(req, res) => {
     const userId = req.params.id
-    const {name,type,serialNumber,connections,billing,status,sharing} = req.body
+    const {document,name,type,serialNumber,connections,billing,status,sharing} = req.body
 
 
     try {
-        const doc = new Document({ userId, name, type, serialNumber, connections, billing, status, sharing });
+        const doc = new Document({ userId, document, name, type, serialNumber, connections, billing, status, sharing });
         await doc.save();
         res.status(201).json(doc);
         
