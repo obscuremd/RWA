@@ -1,13 +1,11 @@
 
-import {  NavArrowDown } from 'iconoir-react'
-import { AddButton } from '../../Atoms/Buttons/AddButton'
-import { Button } from '../../Atoms/Buttons/Button'
+import {  MoreHoriz } from 'iconoir-react'
 import Chip from '../../Atoms/Chip'
-import { useRecoilState, useRecoilValue } from 'recoil'
-import { AddDocumentState } from '../../States/AddDocumentState'
-import { DocsData } from '../../States/DocsData'
+import { DocsData, DocsId } from '../../States/DocsData'
 import { formatDate } from '../../assets/Shared'
 import { activeTable } from '../../States/ActiveTable'
+import { useRecoilState, useRecoilValue } from 'recoil'
+import { EditDocumentState } from '../../States/AddDocumentState'
 
 
 interface Document {
@@ -57,16 +55,19 @@ const FolderDescription = () => {
   const activeDoc = useRecoilValue(activeTable)
   const doc = useRecoilValue<Document[]>(DocsData)
   const specificDoc: Document | undefined = doc[activeDoc]
-  
-  const [addDocumentVisible, setAddDocumentVisible] = useRecoilState(AddDocumentState)
-  addDocumentVisible
+
+
+  const [editFormVisible, setEditFormVisible] = useRecoilState(EditDocumentState)
+  const [docId, setDocId] = useRecoilState(DocsId)
+  docId
   
   return (
     <div className='flex flex-col md:items-end h-full justify-between w-full md:w-fit'>
       {/* buttons */}
       <div className='flex items-center gap-2 self-end'>
-        <Button func={()=>console.log(1)} name='Edit' icon={<NavArrowDown/>}/>
-        <AddButton func={()=>setAddDocumentVisible(true)} name='add document'/>
+        <button onClick={()=>[setEditFormVisible(!editFormVisible), setDocId(specificDoc._id)]}>
+          <MoreHoriz/>
+        </button>
       </div>
 
       {/* info */}
@@ -89,7 +90,7 @@ const FolderDescription = () => {
                             "#000000" // default color if none of the conditions match
                           }/>}/>
           {/* column 2 */}
-            <Columns head1={'serial no.'} property1={specificDoc.serialNumber} head2='start Date' property2={formatDate(specificDoc.createdAt)}/>
+            <Columns head1={'serial no.'} property1={specificDoc.serialNumber} head2='start Date' property2={formatDate(specificDoc.createdAt )}/>
           {/* column 3 */}
             <Columns head1={'connection'} property1={specificDoc.connections ?'enabled':'disabled'} head2='end date' property2={formatDate(specificDoc.updatedAt)}/>
           {/* column 3 */}

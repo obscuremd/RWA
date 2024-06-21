@@ -1,19 +1,23 @@
 import Hero from "../Components/DocsComponents/Hero";
 import Table from "../Atoms/Table";
-import AddDocument from '../Atoms/AddDocument';
+import AddDocument from '../Components/DocsComponents/AddDocument';
 import { useRecoilState, useRecoilValue } from "recoil";
-import { AddDocumentState } from "../States/AddDocumentState";
+import { AddDocumentState, EditDocumentState } from "../States/AddDocumentState";
 import { useEffect, useState } from "react";
 import axios from "axios";
 import { url } from "../assets/Shared";
 import { DocsData } from "../States/DocsData";
 import { waveform } from "ldrs";
+import EditDocument from "../Components/DocsComponents/EditDocument";
+import { AddButton } from "../Atoms/Buttons/AddButton";
 
 
 waveform.register()
 
 
 const Docs = () => {
+
+  
 
   const [docs, setDocs]= useRecoilState(DocsData)
   const [docFetching, setDocFetching]= useState(true)
@@ -33,7 +37,8 @@ const Docs = () => {
     docFetching
   }, []);
 
-  const AddDocumentVisible = useRecoilValue(AddDocumentState)
+  const EditDocumentVisible = useRecoilValue(EditDocumentState)
+  const [addDocumentVisible, setAddDocumentVisible] = useRecoilState(AddDocumentState)
 
   if (docFetching) {
     return (
@@ -43,12 +48,23 @@ const Docs = () => {
     );
   }
 
+  if(docs.length === 0){
+    return(
+      <div className="flex flex-col gap-5 justify-center items-center min-h-screen">
+        create your first Document
+        <AddButton func={()=>setAddDocumentVisible(true)} name='create new document'/>
+        {addDocumentVisible && <AddDocument/>}
+      </div>
+    )
+  }
+
     return (
       <div className="container md:p-[2%] p-[4%] flex flex-col gap-6 relative">
         {/* part 1 */}
         <Hero/>
         <Table/>
-        {AddDocumentVisible && <AddDocument/>}
+        {addDocumentVisible && <AddDocument/>}
+        {EditDocumentVisible && <EditDocument/>}
       </div>
     );
 }

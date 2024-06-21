@@ -1,15 +1,15 @@
 import { Check, FolderPlus, Page, XmarkCircle } from 'iconoir-react'
 import React, { useEffect, useState } from 'react'
 import { useRecoilState } from 'recoil'
-import { AddDocumentState } from '../States/AddDocumentState'
+import { AddDocumentState } from '../../States/AddDocumentState'
 import { AnimatePresence, motion } from 'framer-motion';
-import { AddButton } from './Buttons/AddButton';
+import { AddButton } from '../../Atoms/Buttons/AddButton';
 import { getStorage, ref, uploadBytes, getDownloadURL } from "firebase/storage";
 import { zoomies } from 'ldrs'
-import { IconButton } from './Buttons/IconButton';
+import { IconButton } from '../../Atoms/Buttons/IconButton';
 import toast from 'react-hot-toast';
 import axios from 'axios'
-import { generateRandomString, url } from '../assets/Shared';
+import { generateRandomString, url } from '../../assets/Shared';
 
 
 interface ModalProps{

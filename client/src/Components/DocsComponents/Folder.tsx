@@ -1,8 +1,15 @@
 import CircleProgress from '../../Atoms/CircleProgress'
 import { ipsum } from '../../assets/Data'
 import { AddButton } from '../../Atoms/Buttons/AddButton'
+import { useRecoilState } from 'recoil'
+import { AddDocumentState } from '../../States/AddDocumentState'
+
 
 const Folder = () => {
+
+  const [addDocumentVisible, setAddDocumentVisible] = useRecoilState(AddDocumentState)
+  addDocumentVisible
+
   return (
     <div className='box flex flex-col md:gap-5 gap-2 p-2 rounded-2xl'>
       {/* first part */}
@@ -33,7 +40,7 @@ const Folder = () => {
           </div>
         </div>
 
-        <AddButton func={()=>console.log(1)} name='Projects'/>
+        <AddButton func={()=>setAddDocumentVisible(true)} name='document'/>
       </div>
     </div>
   )

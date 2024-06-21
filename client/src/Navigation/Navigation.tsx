@@ -13,6 +13,7 @@ import Docs from "../Screens/Docs";
 import MetaAuth from "../Auth/MetaAuth";
 import { Ethlog } from "../utils/EthLog";
 import { MetaData } from "../States/MetaData";
+import UserForm from "../Screens/UserForm";
 
 // const Dashboard = lazy(() => import('../Screens/Dashboard'))
 // const NewProject = lazy(() => import('../Screens/NewProject'))
@@ -59,6 +60,7 @@ const Navigation = () => {
           <Header />
           <Routes>
             <Route path="/MetaAuth" element={<MetaAuth />} />
+            <Route path="/UserForm" element={<UserForm />} />
             <Route path="/" element={<Dashboard />} />
             <Route path="/new-project" element={<NewProject />} />
             <Route path="/documents" element={<Docs />} />
