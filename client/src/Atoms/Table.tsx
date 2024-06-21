@@ -12,6 +12,7 @@ import { EditDocumentState } from "../States/AddDocumentState";
 import { Button } from "./Buttons/Button";
 import axios from "axios";
 import toast from "react-hot-toast";
+import { MongoUser } from "../States/LoggedInState";
 
 interface Props{
 }
@@ -34,7 +35,7 @@ const Table:React.FC<Props> = () => {
 
   const doc = useRecoilValue<Document[]>(DocsData)
 
-  
+  const User = useRecoilValue(MongoUser)
 
   // main check box state
   const [active, setActive] = useState(false)
@@ -51,7 +52,7 @@ const Table:React.FC<Props> = () => {
 
   const deleteDoc = async()=>{
     try {
-        await axios.delete(`${url}/docs/${docId}`,{data:{userId:'66716ae91527ac8d699703f2'}})
+        await axios.delete(`${url}/docs/${docId}`,{data:{userId:User?._id}})
 
         toast.success('doc updated successfully')
         setTimeout(() => {

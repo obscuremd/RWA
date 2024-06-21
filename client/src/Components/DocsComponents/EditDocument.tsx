@@ -11,6 +11,7 @@ import { url } from '../../assets/Shared';
 import { Dropdown } from '../../Atoms/Buttons/Dropdown';
 import { Button } from '../../Atoms/Buttons/Button';
 import { DocsId } from '../../States/DocsData';
+import { MongoUser } from '../../States/LoggedInState';
 
 
 
@@ -23,6 +24,8 @@ interface ModalProps{
 zoomies.register()
 
 const EditDocument = () => {
+
+    const User = useRecoilValue(MongoUser)
 
     // document Id
     const docId = useRecoilValue(DocsId)
@@ -60,7 +63,7 @@ const EditDocument = () => {
     const edit = async()=>{
         setLoading(true)
         try {
-            await axios.put(`${url}/docs/${docId}`,{userId:'66716ae91527ac8d699703f2',connections:connections, billing:billing, sharing:sharing ,status:status[statusIndex]})
+            await axios.put(`${url}/docs/${docId}`,{userId:User?._id,connections:connections, billing:billing, sharing:sharing ,status:status[statusIndex]})
 
             toast.success('doc updated successfully')
             setTimeout(() => {
@@ -76,7 +79,7 @@ const EditDocument = () => {
     const deleteDoc = async()=>{
         setLoading(true)
         try {
-            await axios.delete(`${url}/docs/${docId}`,{data:{userId:'66716ae91527ac8d699703f2'}})
+            await axios.delete(`${url}/docs/${docId}`,{data:{userId:User?._id}})
 
             toast.success('doc updated successfully')
             setTimeout(() => {

@@ -10,22 +10,28 @@ import { DocsData } from "../States/DocsData";
 import { waveform } from "ldrs";
 import EditDocument from "../Components/DocsComponents/EditDocument";
 import { AddButton } from "../Atoms/Buttons/AddButton";
+import { MongoUser } from "../States/LoggedInState";
+import toast from "react-hot-toast";
 
 
 waveform.register()
 
-
 const Docs = () => {
 
-  
+  const User = useRecoilValue(MongoUser)
+  console.log(User)
 
   const [docs, setDocs]= useRecoilState(DocsData)
   const [docFetching, setDocFetching]= useState(true)
 
   useEffect(() => {
+    
     const fetchDocs = async() =>{
+      if(!User){
+        toast.error("User")
+      }
       setDocFetching(true)
-      const res = await axios.get(`${url}/docs/66716ae91527ac8d699703f2`)
+      const res = await axios.get(`${url}/docs/${User?._id}`)
       setDocs(res.data)
       setTimeout(() => {
         setDocFetching(false)

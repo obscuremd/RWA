@@ -1,6 +1,6 @@
 import { Check, FolderPlus, Page, XmarkCircle } from 'iconoir-react'
 import React, { useEffect, useState } from 'react'
-import { useRecoilState } from 'recoil'
+import { useRecoilState, useRecoilValue } from 'recoil'
 import { AddDocumentState } from '../../States/AddDocumentState'
 import { AnimatePresence, motion } from 'framer-motion';
 import { AddButton } from '../../Atoms/Buttons/AddButton';
@@ -10,6 +10,7 @@ import { IconButton } from '../../Atoms/Buttons/IconButton';
 import toast from 'react-hot-toast';
 import axios from 'axios'
 import { generateRandomString, url } from '../../assets/Shared';
+import { MongoUser } from '../../States/LoggedInState';
 
 
 interface ModalProps{
@@ -19,6 +20,8 @@ interface ModalProps{
 }
 
 const AddDocument = () => {
+
+    const User = useRecoilValue(MongoUser)
 
     const [randomString, setRandomString] = useState('ppp');
     useEffect(() => {
@@ -95,7 +98,7 @@ const AddDocument = () => {
 
         try {
             
-            await axios.post(`${url}/docs/66716ae91527ac8d699703f2`,{
+            await axios.post(`${url}/docs/${User?._id}`,{
                 document:documentUrl,
                 name:fileNameWithoutExtension,
                 type:`.${fileExtension}`,
