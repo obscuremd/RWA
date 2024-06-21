@@ -23,7 +23,11 @@ router.get('/:email', async(req, res) => {
     
     try {
         const user = await User.findOne({email: req.params.email})
-        res.status(200).json(user)
+        if(!user){
+            res.status(404).json('user not found')
+        }else{
+            res.status(200).json(user)
+        }
     } catch (error) {
         res.status(500).json(error)
     }

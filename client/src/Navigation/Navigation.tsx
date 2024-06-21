@@ -41,34 +41,38 @@ const Navigation = () => {
     }
   }, []);
 
-  return (
+  return(
+    <div>
+      <UserForm/>
+    </div>
+  )
 
-    <BrowserRouter>
-      {isMobile && (
-        <button
-          onClick={() => toggleNavBar(!navbar)}
-          className="fixed rounded-full border-[1px] top-[1.5%] left-[1.5%] border-[#445B8A] bg-[#2f4064] p-2 z-30"
-          style={{ fontSize: Shared.Text.xl }}
-        >
-          <Menu />
-        </button>
-      )}
+  // return (
+  //   <BrowserRouter>
+  //     {isMobile && (
+  //       <button
+  //         onClick={() => toggleNavBar(!navbar)}
+  //         className="fixed rounded-full border-[1px] top-[1.5%] left-[1.5%] border-[#445B8A] bg-[#2f4064] p-2 z-30"
+  //         style={{ fontSize: Shared.Text.xl }}
+  //       >
+  //         <Menu />
+  //       </button>
+  //     )}
 
-      <div className="flex">
-        {navbar && <SideBar />}
-        <div className="w-full">
-          <Header />
-          <Routes>
-            <Route path="/MetaAuth" element={<MetaAuth />} />
-            <Route path="/UserForm" element={<UserForm />} />
-            <Route path="/" element={<Dashboard />} />
-            <Route path="/new-project" element={<NewProject />} />
-            <Route path="/documents" element={<Docs />} />
-          </Routes>
-        </div>
-      </div>
-    </BrowserRouter>
-  );
+  //     <div className="flex">
+  //       {navbar && <SideBar />}
+  //       <div className="w-full">
+  //         <Header />
+  //         <Routes>
+  //           <Route path="/MetaAuth" element={<MetaAuth />} />
+  //           <Route path="/" element={<Dashboard />} />
+  //           <Route path="/new-project" element={<NewProject />} />
+  //           <Route path="/documents" element={<Docs />} />
+  //         </Routes>
+  //       </div>
+  //     </div>
+  //   </BrowserRouter>
+  // );
 };
 
 export default Navigation;

@@ -31,7 +31,8 @@
     "react-router-dom": "^6.23.0",
     "recharts": "^2.12.6",
     "recoil": "^0.7.7",
-    "resend": "^3.3.0"
+    "resend": "^3.3.0",
+    "use-react-countries": "^2.0.1"
   },
   "devDependencies": {
     "@types/react": "^18.2.66",
