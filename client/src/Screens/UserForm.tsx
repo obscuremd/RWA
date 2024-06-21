@@ -79,6 +79,7 @@ const UserForm = () => {
           setTimeout(() => {
             toast.success('details saved')
             setLoading(false)
+            window.location.reload()
           }, 2000);
         } catch (error) {
           toast.error('error')
