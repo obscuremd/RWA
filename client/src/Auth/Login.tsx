@@ -17,7 +17,6 @@ interface Props{
 
 const Login : React.FC<Props> = ({setActives}) => {
   
-  const [activeForm, setActiveForm] = useState(0)
 
   const {isLoaded, signIn} =useSignIn()
   const [loading, setLoading] = useState(false)
@@ -50,8 +49,7 @@ const Login : React.FC<Props> = ({setActives}) => {
 
       try {
         await signIn.create({
-          strategy:'email_link',
-          redirectUrl:`${window.location.origin}/`,
+          strategy:'email_code',
 
           identifier: email,
           // password: password
@@ -61,7 +59,7 @@ const Login : React.FC<Props> = ({setActives}) => {
       
       setTimeout(()=>{
         toast.success('code sent')
-        setActiveForm(1)
+        setActives(3)
         setLoading(false)
           // window.location.reload()
         },2000)
@@ -91,7 +89,6 @@ const Login : React.FC<Props> = ({setActives}) => {
     
     
     {/* Login */}
-      {activeForm === 0 && 
         <div className='md:w-[40%] w-full flex flex-col md:gap-11 gap-5 md:px-14 px-5'>
         <motion.p initial={{x:'-50%', opacity:0}} animate={{x:0, opacity:1, transition:{delay:0.1}}} style={{fontSize:Shared.Text.xxl, fontWeight:'700'}}>Login</motion.p>
         
@@ -154,15 +151,9 @@ const Login : React.FC<Props> = ({setActives}) => {
           ?<l-waveform size="35" stroke="3.5" speed="1" color="white"/>
           :'Login'} 
           </motion.button>
-          </div>}
+          </div>
       
-      {activeForm === 1 && 
-        <div className='md:w-[40%] w-full flex flex-col md:gap-5 gap-5 md:px-14 px-5'>
-        <p style={{fontSize:Shared.Text.xxl, fontWeight:'700'}}>Verify Email</p>
-    
-        <p style={{fontSize:Shared.Text.small}} className='flex gap-2'>To verify your identity, please click on the link we have just sent to your email.</p>
-        
-          </div>}
+     
       
       {/* splash & slogan */}
       <div className='flex justify-center items-center md:bg-[#2F406480] md:p-14 p-5 md:h-screen'>
